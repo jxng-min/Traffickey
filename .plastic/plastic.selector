@@ -1,0 +1,4 @@
+repository "1215 거의완성@jungwoo0601@cloud"
+  path "/"
+    br "/main"
+    co "/main"
