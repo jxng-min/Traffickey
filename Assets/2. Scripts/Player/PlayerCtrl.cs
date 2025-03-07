@@ -13,6 +13,7 @@ public class PlayerCtrl : MonoBehaviour
 
     public Rigidbody Rigidbody { get; private set; }
     public Vector3 Direction { get; private set; }
+    public PlayerStateContext StateContext { get; private set; }
 
     public bool IsHide { get; set; }
 
@@ -51,6 +52,23 @@ public class PlayerCtrl : MonoBehaviour
 
         Vector3 new_position = Rigidbody.position + velocity * Time.deltaTime;
         Rigidbody.MovePosition(new_position);
+    }
+
+    private void OnCollisionEnter(Collision coll)
+    {
+        if(coll.transform.CompareTag("Enemy"))
+        {
+            if(coll.transform.name == "Doctor")
+            {
+                (m_dead_state as PlayerDeadState).Enemy = "Doctor";
+            }
+            else
+            {
+                (m_dead_state as PlayerDeadState).Enemy = "Hunter";
+            }
+            
+            ChangeState(PlayerState.DEAD);
+        }   
     }
 
     public void ChangeState(PlayerState state)

@@ -10,6 +10,7 @@ TagManager:
   - Item
   - DoorMain
   - Hide
+  - Enemy
   layers:
   - Default
   - TransparentFX
