@@ -13,6 +13,7 @@ public class PlayerCtrl : MonoBehaviour
 
     public Rigidbody Rigidbody { get; private set; }
     public Vector3 Direction { get; private set; }
+    public PlayerStateContext StateContext { get; private set; }
 
     public bool IsHide { get; set; }
 

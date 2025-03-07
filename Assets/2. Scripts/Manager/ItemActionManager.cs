@@ -24,6 +24,7 @@ public class ItemActionManager : MonoBehaviour
                         break;
 
                     case (int)ItemCode.CAMERA:
+                        m_player_ctrl.GetComponent<CameraInteraction>().Use();
                         break;
                 }
                 break;
@@ -32,7 +33,7 @@ public class ItemActionManager : MonoBehaviour
                 switch(item.ID)
                 {
                     case (int)ItemCode.FLASHLIGHT:
-                        FlashlightManager.Instance.ToggleFlashlight();
+                        m_player_ctrl.GetComponent<FlashlightInteraction>().ToggleFlashlight();
                         return false;
                 }
                 break;
