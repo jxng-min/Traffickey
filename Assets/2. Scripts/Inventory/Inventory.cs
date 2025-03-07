@@ -72,7 +72,7 @@ public class Inventory : MonoBehaviour
                 if(Input.GetAxis("Mouse ScrollWheel") > 0f)
                 {
                     m_arrow_index = PrevArrowIndex();
-                    m_arrows[m_arrow_index].SetActive(true);    
+                    m_arrows[m_arrow_index].SetActive(true);
                 }
                 else
                 {
