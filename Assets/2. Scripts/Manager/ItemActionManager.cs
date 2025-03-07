@@ -20,6 +20,7 @@ public class ItemActionManager : MonoBehaviour
                 switch(item.ID)
                 {
                     case (int)ItemCode.WATER:
+                        StaminaManager.Instance.RegenStamina(50f);
                         break;
 
                     case (int)ItemCode.CAMERA:
