@@ -12,9 +12,9 @@ public class EnemyIdleState : MonoBehaviour, IState<EnemyCtrl>
             m_enemy_ctrl = sender;
         }
 
-        //_enemy_ctrl?.Animator.SetBool("IsPatrol", false);
+        m_enemy_ctrl.Animator?.SetBool("IsPatrol", false);
 
-        m_idle_time = UnityEngine.Random.Range(2f, 5f);
+        m_idle_time = UnityEngine.Random.Range(1f, 2f);
     }
 
     public void Execute()

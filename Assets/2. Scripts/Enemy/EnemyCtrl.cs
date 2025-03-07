@@ -29,8 +29,8 @@ public class EnemyCtrl : MonoBehaviour
     public Animator Animator { get; private set; }
     public NavMeshAgent Agent { get; private set; }
     public float PatrolRange { get; set; } = 60f;
-    public float DetectRange { get; set; } = 25f;
-    public float FollowRange { get; set; } = 25f;
+    public float DetectRange { get; set; } = 20f;
+    public float FollowRange { get; set; } = 20f;
 
     private void Awake()
     {
@@ -81,11 +81,11 @@ public class EnemyCtrl : MonoBehaviour
         //     return;
         // }
 
-        int ray_count = 5;
+        int ray_count = 36;
         Vector3 y_offset = new Vector3(0f, -2f, 0f);
-        float detect_angle = 45f;
+        float detect_angle = 360f;
 
-        float start_angle = -detect_angle;
+        float start_angle = 0f;
         float offset_angle = detect_angle / ray_count;
 
         for(int i = 0; i < ray_count; i++)

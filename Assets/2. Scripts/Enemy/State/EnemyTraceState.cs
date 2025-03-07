@@ -16,7 +16,8 @@ public class EnemyTraceState : MonoBehaviour, IState<EnemyCtrl>
             m_player = m_enemy_ctrl.Player;
         }
 
-        //m_enemy_ctrl.Animator.SetBool("IsPatrol", true);
+        m_agent.speed = 6f;
+        m_enemy_ctrl.Animator.SetBool("IsPatrol", true);
         m_agent.stoppingDistance = 0.5f;
 
         // TODO: 들킨 효과음 출력
@@ -26,15 +27,16 @@ public class EnemyTraceState : MonoBehaviour, IState<EnemyCtrl>
     {
         DistanceCheck();
 
-        if(m_agent.remainingDistance <= m_agent.stoppingDistance)
+        if(m_agent.velocity.magnitude > 0f && m_agent.remainingDistance <= m_agent.stoppingDistance)
         {
+            Debug.Log("여기2");
             m_enemy_ctrl.ChangeState(EnemyState.IDLE);
         }
     }
 
     public void ExecuteExit()
     {
-        //m_enemy_ctrl.Animator.SetBool("IsPatrol", false);
+        m_enemy_ctrl.Animator.SetBool("IsPatrol", false);
         m_agent.stoppingDistance = 1f;
         m_agent.ResetPath();
     }
@@ -43,6 +45,7 @@ public class EnemyTraceState : MonoBehaviour, IState<EnemyCtrl>
     {
         if(Vector3.Distance(transform.position, m_player.transform.position) <= m_enemy_ctrl.FollowRange)
         {
+            Debug.Log("여기1");
             m_agent.SetDestination(m_player.transform.position);
         }
         else

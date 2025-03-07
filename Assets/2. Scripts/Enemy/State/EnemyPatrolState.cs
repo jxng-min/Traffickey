@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,13 +14,14 @@ public class EnemyPatrolState : MonoBehaviour, IState<EnemyCtrl>
             m_agent = m_enemy_ctrl.Agent;
         }
 
+        m_agent.speed = 3f;
         m_agent.stoppingDistance = 1f;
 
         Vector3 pos = RandomPos(m_enemy_ctrl.PatrolCenter.position, m_enemy_ctrl.PatrolRange);
         
         m_agent.SetDestination(pos);
 
-        //m_enemy_ctrl.Animator.SetBool("IsPatrol", true);
+        m_enemy_ctrl.Animator.SetBool("IsPatrol", true);
     }
 
     public void Execute()
@@ -37,7 +37,7 @@ public class EnemyPatrolState : MonoBehaviour, IState<EnemyCtrl>
     public void ExecuteExit()
     {
         m_agent.ResetPath();
-        //m_enemy_ctrl.Animator.SetBool("IsPatrol", false);
+        m_enemy_ctrl.Animator.SetBool("IsPatrol", false);
     }
 
     private Vector3 RandomPos(Vector3 center, float range)
@@ -58,7 +58,7 @@ public class EnemyPatrolState : MonoBehaviour, IState<EnemyCtrl>
         return m_agent.destination;
     }
 
-    private void OmosSelected()
+    private void OnDrawGizmosSelected()
     {
         if(m_enemy_ctrl is null)
         {
