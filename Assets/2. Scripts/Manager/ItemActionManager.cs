@@ -32,7 +32,8 @@ public class ItemActionManager : MonoBehaviour
                 switch(item.ID)
                 {
                     case (int)ItemCode.FLASHLIGHT:
-                        break;
+                        FlashlightManager.Instance.ToggleFlashlight();
+                        return false;
                 }
                 break;
         }

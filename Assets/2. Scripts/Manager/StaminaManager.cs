@@ -33,11 +33,8 @@ public class StaminaManager : Singleton<StaminaManager>
     {
         m_stamina_slider.value = m_current_stamina;
 
-        Debug.Log($"{m_stamina_slider.value}, {m_stamina_slider.maxValue}");
-
         if(m_stamina_slider.value >= m_stamina_slider.maxValue)
         {
-            Debug.Log("들어옴");
             m_stamina_slider.gameObject.SetActive(false);
         }
     }
@@ -77,7 +74,7 @@ public class StaminaManager : Singleton<StaminaManager>
         {
             return;
         }
-        
+
         m_stamina_slider.gameObject.SetActive(true);
 
         m_current_stamina += amount;
