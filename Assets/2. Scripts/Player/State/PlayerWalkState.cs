@@ -16,6 +16,8 @@ public class PlayerWalkState : MonoBehaviour, IState<PlayerCtrl>
     {
         CheckMove();
         CheckDead();
+
+        StaminaManager.Instance.RegenStamina();
     }
 
     public void ExecuteExit()
@@ -29,7 +31,10 @@ public class PlayerWalkState : MonoBehaviour, IState<PlayerCtrl>
         {
             if(Input.GetKey(KeyCode.LeftShift))
             {
-                m_player_ctrl.ChangeState(PlayerState.RUN);
+                if(StaminaManager.Instance.Current > 0f)
+                {
+                    m_player_ctrl.ChangeState(PlayerState.RUN);
+                }
             }
             else
             {
