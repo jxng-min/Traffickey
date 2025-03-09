@@ -41,6 +41,7 @@ public class ItemRaycast : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
+            SoundManager.Instance.PlayEffect("Get Item");
             if(m_current_item.Item.Type <= ItemType.Equipment)
             {
                 var all_items = m_inventory.Slots;

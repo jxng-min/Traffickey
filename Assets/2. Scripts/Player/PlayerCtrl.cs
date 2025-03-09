@@ -30,6 +30,8 @@ public class PlayerCtrl : MonoBehaviour
         m_dead_state = gameObject.AddComponent<PlayerDeadState>();
 
         ChangeState(PlayerState.IDLE);
+
+        SoundManager.Instance.PlayBGM("Game Background");
     }
 
     private void Update()

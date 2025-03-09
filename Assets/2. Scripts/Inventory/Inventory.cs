@@ -81,6 +81,7 @@ public class Inventory : MonoBehaviour
 
             if(IsActive)
             {
+                SoundManager.Instance.PlayEffect("Button Click");
                 m_arrows[m_arrow_index].SetActive(false);
 
                 if(Input.GetAxis("Mouse ScrollWheel") > 0f)
