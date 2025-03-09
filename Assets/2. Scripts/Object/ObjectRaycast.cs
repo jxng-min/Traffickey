@@ -110,7 +110,8 @@ public class ObjectRaycast : MonoBehaviour
 
     private void DoorInteraction()
     {
-
+        var door_anime = m_current_object.GetComponent<Animator>();
+        door_anime.SetBool("IsOpen", !door_anime.GetBool("IsOpen"));
     }
 
     private void Vent1Interaction()
