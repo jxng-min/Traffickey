@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23547353901872224}
   - component: {fileID: 95691109808284178}
   - component: {fileID: 4355189597067806421}
-  - component: {fileID: 6152951382997888003}
+  - component: {fileID: 9039678132103016857}
   m_Layer: 6
   m_Name: waterbottle
   m_TagString: Item
@@ -133,7 +133,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.35075733, y: 0.85118955, z: 0.35075733}
   m_Center: {x: 0, y: -0.21044275, z: 0}
---- !u!114 &6152951382997888003
+--- !u!114 &9039678132103016857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,4 +146,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_item: {fileID: 11400000, guid: 5263d5c671bbc445e87d855b82d8bb6c, type: 2}
-  m_indicator_height: 300

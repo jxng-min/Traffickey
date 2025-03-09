@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -27,6 +28,17 @@ public class Inventory : MonoBehaviour
     [SerializeField] private float m_open_time;
     private float m_elapsed_time;
 
+    [Space(10)]
+    [Header("열쇠 카운터")]
+    [SerializeField] private TMP_Text m_key_counter;
+
+    [Space(10)]
+    [Header("플레이어의 팔")]
+    [SerializeField] private GameObject m_players_arm;
+
+    [Header("플레이어의 플래시라이트 팔")]
+    [SerializeField] private GameObject m_players_flashlight_arm;
+
     private Slot[] m_slots;
 
     public Slot[] Slots
@@ -52,6 +64,8 @@ public class Inventory : MonoBehaviour
             arrow_list.Add(child.gameObject);
         }
         m_arrows = arrow_list.ToArray();
+
+        m_key_counter.text = $"0 / 5";
     }
 
     private void Update()
@@ -67,6 +81,7 @@ public class Inventory : MonoBehaviour
 
             if(IsActive)
             {
+                SoundManager.Instance.PlayEffect("Button Click");
                 m_arrows[m_arrow_index].SetActive(false);
 
                 if(Input.GetAxis("Mouse ScrollWheel") > 0f)
@@ -169,6 +184,12 @@ public class Inventory : MonoBehaviour
                 if(item.Overlap && m_slots[i].Item.ID == item.ID)
                 {
                     m_slots[i].UpdateSlotCount(count);
+
+                    if(item.ID == (int)ItemCode.KEY)
+                    {
+                        m_key_counter.text = $"{GetItemCount(ItemCode.KEY)} / 5";
+                    }
+
                     return;
                 }
             }
@@ -176,6 +197,17 @@ public class Inventory : MonoBehaviour
             if(m_slots[i].Item is null && m_slots[i].IsMask(item))
             {
                 m_slots[i].AddItem(item, count);
+
+                if(item.ID == (int)ItemCode.KEY)
+                {
+                    m_key_counter.text = $"{GetItemCount(ItemCode.KEY)} / 5";
+                }
+                else if(item.ID == (int)ItemCode.FLASHLIGHT)
+                {
+                    m_players_arm.SetActive(false);
+                    m_players_flashlight_arm.SetActive(true);
+                }
+
                 return;
             }
         }
@@ -197,5 +229,24 @@ public class Inventory : MonoBehaviour
         }
 
         return null;
+    }
+
+    private int GetItemCount(ItemCode item_code)
+    {
+        int count = 0;
+        foreach(var slot in m_slots)
+        {
+            if(slot.Item is null)
+            {
+                continue;
+            }
+
+            if(slot.Item.ID == (int)item_code)
+            {
+                count += slot.Count;
+            }
+        }
+
+        return count;
     }
 }

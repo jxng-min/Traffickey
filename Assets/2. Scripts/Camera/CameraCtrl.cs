@@ -15,8 +15,11 @@ public class CameraCtrl : MonoBehaviour
 
     private void Update()
     {
-        Rotation();
-        Position();
+        if(!Setter.IsActive)
+        {
+            Rotation();
+            Position();
+        }
     }
 
     private void Rotation()

@@ -1,19 +1,11 @@
-using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour
 {
-    [Header("해당 오브젝트에 할당되는 아이템")]
+    [Header("할당되는 아이템 오브젝트")]
     [SerializeField] private Item m_item;
     public Item Item
     {
         get { return m_item; }
-    }
-
-    [Header("아이템 인디케이터의 높이")]
-    [SerializeField] private float m_indicator_height;
-    public float IndicatorHeight
-    {
-        get { return m_indicator_height; }
     }
 }
