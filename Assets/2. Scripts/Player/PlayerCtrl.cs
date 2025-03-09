@@ -31,14 +31,20 @@ public class PlayerCtrl : MonoBehaviour
 
         ChangeState(PlayerState.IDLE);
 
-        SoundManager.Instance.PlayBGM("Game Background");
+        if(SettingManager.Instance.Setting.m_sound_setting.m_background_is_on)
+        {
+            SoundManager.Instance.PlayBGM("Game Background");
+        }
     }
 
     private void Update()
     {
-        Direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-
-        m_player_state_context.ExecuteUpdate();
+        if(!Setter.IsActive)
+        {
+            Direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+        
+            m_player_state_context.ExecuteUpdate();
+        }
     }
 
     public void Move(float speed)

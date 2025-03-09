@@ -67,6 +67,11 @@ public class SoundManager : Singleton<SoundManager>
 
     public void PlayEffect(string effect_name)
     {
+        if(!SettingManager.Instance.Setting.m_sound_setting.m_effect_is_on)
+        {
+            return;
+        }
+
         int target_index = -1;
         for(int i = 0; i < m_effect_clips.Length; i++)
         {

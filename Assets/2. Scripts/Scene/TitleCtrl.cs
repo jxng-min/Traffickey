@@ -4,7 +4,19 @@ public class TitleCtrl : MonoBehaviour
 {
     private void Start()
     {
-        SoundManager.Instance.PlayBGM("Title Background");    
+        if(SettingManager.Instance.Setting.m_sound_setting.m_background_is_on)
+        {
+            if(SoundManager.Instance.BGM.clip is null)
+            {
+                SoundManager.Instance.PlayBGM("Title Background");
+                return;
+            }
+
+            if(SoundManager.Instance.BGM.clip.name != "Title Background")
+            {
+                SoundManager.Instance.PlayBGM("Title Background");
+            }
+        }    
     }
     
     public void BTN_StartNewGame()
