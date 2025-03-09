@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.1
@@ -4775,7 +4775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0a98547312d08684d85854c04acaba5d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0a98547312d08684d85854c04acaba5d, type: 3}
       propertyPath: m_TagString
@@ -26120,10 +26120,10 @@ RectTransform:
   - {fileID: 104102667}
   - {fileID: 155247451}
   - {fileID: 1370137757}
+  - {fileID: 885081546}
   - {fileID: 1854160691}
   - {fileID: 1772470264}
   - {fileID: 1827760391}
-  - {fileID: 885081546}
   m_Father: {fileID: 33751754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -33509,7 +33509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e8d1f6a639160cc42a4e3fbede9acfdd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e8d1f6a639160cc42a4e3fbede9acfdd, type: 3}
       propertyPath: m_TagString
@@ -40825,7 +40825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &9156988146455976806
 MeshFilter:
   m_ObjectHideFlags: 0
