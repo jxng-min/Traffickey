@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 453522}
   - component: {fileID: 5858008168094007754}
-  - component: {fileID: 3880325950693512986}
+  - component: {fileID: 2464744888333487677}
   m_Layer: 6
   m_Name: camera
   m_TagString: Item
@@ -144,7 +144,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15041801, y: 0.09372522, z: 0.12627468}
   m_Center: {x: -0.006425962, y: 0.048565425, z: -0.0047560185}
---- !u!114 &3880325950693512986
+--- !u!114 &2464744888333487677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_item: {fileID: 11400000, guid: e80d43d6e2d35979a99aa5db62827cfe, type: 2}
-  m_indicator_height: 300
 --- !u!1 &176766
 GameObject:
   m_ObjectHideFlags: 0

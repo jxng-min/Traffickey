@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23951379687045248}
   - component: {fileID: 95139158103427248}
   - component: {fileID: 7769912829251454126}
-  - component: {fileID: 2572991500310978510}
+  - component: {fileID: 7151671797350745879}
   m_Layer: 6
   m_Name: flashlight
   m_TagString: Item
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275266641364890}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.70411503, y: -0.06497849, z: -0.03024314, w: 0.70645964}
+  m_LocalRotation: {x: -0.7041155, y: -0.064971715, z: -0.030239433, w: 0.7064599}
   m_LocalPosition: {x: 0.14246996, y: 0.0959135, z: 0.10408991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -133,7 +133,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.23761036, y: 1.01018, z: 0.2340006}
   m_Center: {x: -0.001101341, y: 0.491251, z: -0.0000000048051216}
---- !u!114 &2572991500310978510
+--- !u!114 &7151671797350745879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,4 +146,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_item: {fileID: 11400000, guid: fe56d0b115082d30298777c0a4082fb0, type: 2}
-  m_indicator_height: 300

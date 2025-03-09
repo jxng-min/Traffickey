@@ -23,9 +23,6 @@ public class ItemRaycast : MonoBehaviour
     [Header("인벤토리 UI")]
     [SerializeField] private Inventory m_inventory;
 
-    [Header("아이템 인디케이터")]
-    [SerializeField] private TMP_Text m_indicator_label;
-
     [Header("추가/삭제할 머티리얼")]
     [SerializeField] private Material m_material;
     private bool m_material_exist = false;
@@ -94,12 +91,6 @@ public class ItemRaycast : MonoBehaviour
 
                 m_current_item = raycasted_item;
 
-                m_indicator_label.gameObject.SetActive(true);
-                m_indicator_label.text = ItemDataManager.Instance.GetName(m_current_item.Item.ID);
-
-                Vector3 final_position = new Vector3(Screen.width / 2f, Screen.height / 2f + m_current_item.IndicatorHeight, 0f);
-                m_indicator_label.GetComponent<RectTransform>().position = final_position;
-
                 m_is_pick_up_active = true;
                 
                 AddMaterial();
@@ -125,7 +116,6 @@ public class ItemRaycast : MonoBehaviour
     private void ItemInfoDisappear()
     {
         m_is_pick_up_active = false;
-        m_indicator_label.gameObject.SetActive(false);
         m_current_item = null;
     }
 
