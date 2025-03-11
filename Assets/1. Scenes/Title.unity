@@ -203,6 +203,7 @@ MonoBehaviour:
   m_background_clips:
   - {fileID: 8300000, guid: aa469bb87aa74684cb8f0a89e0e14e63, type: 3}
   - {fileID: 8300000, guid: 9c53c995cda905d4386a82528df06664, type: 3}
+  - {fileID: 8300000, guid: cdcf5fa8ba932d65a984f9032b5a16e9, type: 3}
   m_effect_clips:
   - {fileID: 8300000, guid: 33e9ee04015797345828f6d7109529b8, type: 3}
   - {fileID: 8300000, guid: b57e9a299e4933142a44990098eabd9e, type: 3}

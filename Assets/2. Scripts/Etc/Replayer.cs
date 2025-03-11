@@ -22,21 +22,16 @@ public class Replayer : MonoBehaviour
         }
     }
 
+    public void BTN_Retry()
+    {
+        SettingManager.Instance.SaveData();
+        LoadingManager.Instance.LoadScene("Game");
+    }
+
     public void BTN_Title()
     {
         SettingManager.Instance.SaveData();
         LoadingManager.Instance.LoadScene("Title");
-    }
-
-    public void BTN_Exit()
-    {
-        SettingManager.Instance.SaveData();
-
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
     }
 
     public void Setting()

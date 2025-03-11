@@ -21,8 +21,6 @@ public class GameEventBus : MonoBehaviour
             this_event.AddListener(listener);
             m_events.Add(event_type, this_event);
         }
-
-        Debug.Log($"{event_type.ToString()}이(가) 성공적으로 구독되었습니다.");
     }
 
     public static void Unsubscribe(GameEventType event_type, UnityAction listener)
@@ -32,8 +30,6 @@ public class GameEventBus : MonoBehaviour
         if(m_events.TryGetValue(event_type, out this_event))
         {
             this_event.RemoveListener(listener);
-
-            Debug.Log($"{event_type.ToString()}이(가) 성공적으로 구독 취소되었습니다.");
         }
     }
 
@@ -44,8 +40,6 @@ public class GameEventBus : MonoBehaviour
         if(m_events.TryGetValue(event_type, out this_event))
         {
             this_event.Invoke();
-
-            Debug.Log($"{event_type.ToString()}이(가) 성공적으로 실행되었습니다.");
         }
     }
 }

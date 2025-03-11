@@ -192,6 +192,11 @@ public class Inventory : MonoBehaviour
                     if(item.ID == (int)ItemCode.KEY)
                     {
                         m_key_counter.text = $"{GetItemCount(ItemCode.KEY)} / 5";
+
+                        if(GetItemCount(ItemCode.KEY) >= 5)
+                        {
+                            LoadingManager.Instance.LoadScene("Epilogue");
+                        }
                     }
 
                     return;
@@ -205,6 +210,11 @@ public class Inventory : MonoBehaviour
                 if(item.ID == (int)ItemCode.KEY)
                 {
                     m_key_counter.text = $"{GetItemCount(ItemCode.KEY)} / 5";
+
+                    if(GetItemCount(ItemCode.KEY) >= 5)
+                    {
+                        LoadingManager.Instance.LoadScene("Epilogue");
+                    }
                 }
                 else if(item.ID == (int)ItemCode.FLASHLIGHT)
                 {

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class GameManager : Singleton<GameManager>
 {
     private GameEventType m_game_state;
@@ -37,17 +39,26 @@ public class GameManager : Singleton<GameManager>
                 SoundManager.Instance.PlayBGM("Title Background");
             }
         }
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void Loading()
     {
         Current = GameEventType.Loading;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 
     public void Describing()
     {
         Current = GameEventType.Describing;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void Playing()
@@ -73,6 +84,9 @@ public class GameManager : Singleton<GameManager>
             SoundManager.Instance.BGM.Play();
             EnemyManager.Instance.ResumeAllEnemy();
         }
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void Setting()
@@ -84,12 +98,16 @@ public class GameManager : Singleton<GameManager>
             SoundManager.Instance.BGM.Pause();
         }
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         EnemyManager.Instance.StopAllEnemy();
     }
 
     public void Dead()
     {
         Current = GameEventType.Dead;
+        m_is_can_init = true;
 
         EnemyManager.Instance.StopAllEnemy();
     }
@@ -97,6 +115,10 @@ public class GameManager : Singleton<GameManager>
     public void Clear()
     {
         Current = GameEventType.Clear;
+        m_is_can_init = true;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         EnemyManager.Instance.StopAllEnemy();
     }

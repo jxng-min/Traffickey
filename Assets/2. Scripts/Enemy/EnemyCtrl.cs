@@ -82,7 +82,7 @@ public class EnemyCtrl : MonoBehaviour
         // }
 
         int ray_count = 36;
-        Vector3 y_offset = new Vector3(0f, -2f, 0f);
+        Vector3 y_offset = new Vector3(0f, -3.5f, 0f);
         float detect_angle = 360f;
 
         float start_angle = 0f;

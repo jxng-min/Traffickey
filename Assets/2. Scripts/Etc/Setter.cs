@@ -65,9 +65,6 @@ public class Setter : MonoBehaviour
             {
                 GameEventBus.Publish(GameEventType.Setting);
 
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-
                 m_animator.SetBool("IsOpen", true);
             }
             else if(GameManager.Instance.Current == GameEventType.Setting)
@@ -75,9 +72,6 @@ public class Setter : MonoBehaviour
                 GameEventBus.Publish(GameEventType.Playing);
                 
                 SoundManager.Instance.PlayEffect("Button Click");
-
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
 
                 m_animator.SetBool("IsOpen", false);
             }

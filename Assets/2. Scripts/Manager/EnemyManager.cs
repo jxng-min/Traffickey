@@ -26,6 +26,9 @@ public class EnemyManager : Singleton<EnemyManager>
 
             m_doctor_audio_source.volume = Mathf.Clamp(1f - (m_doctor_distance / m_max_distance), m_min_value, m_max_value);
             m_hunter_audio_source.volume = Mathf.Clamp(1f - (m_hunter_distance / m_max_distance), m_min_value, m_max_value);
+
+            m_doctor_audio_source.pitch = Mathf.Clamp(0.8f, 1.5f, 1 - (m_doctor_distance / m_max_distance));
+            m_hunter_audio_source.pitch = Mathf.Clamp(0.8f, 1.5f, 1 - (m_hunter_distance / m_max_distance));
         }
     }
 
