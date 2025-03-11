@@ -1,9 +1,5 @@
-using TMPro;
+using System.Linq;
 using UnityEngine;
-
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 public class ItemRaycast : MonoBehaviour
 {
@@ -146,43 +142,26 @@ public class ItemRaycast : MonoBehaviour
 
     private void AddMaterial()
     {
-        foreach(var renderer in m_current_item.GetComponentsInChildren<Renderer>(true))
+        foreach (var renderer in m_current_item.GetComponentsInChildren<Renderer>(true))
         {
-            Material[] materials = renderer.sharedMaterials;
-            m_material_exist = false;
-
-            foreach(var material in materials)
+            var materials = renderer.sharedMaterials.ToList();
+            if (!materials.Contains(m_material))
             {
-                if(material == m_material)
-                {
-                    m_material_exist = true;
-                    break;
-                }
-            }
-
-            if(!m_material_exist)
-            {
-                ArrayUtility.Add(ref materials, m_material);
-                renderer.sharedMaterials = materials;
+                materials.Add(m_material);
+                renderer.sharedMaterials = materials.ToArray();
             }
         }
     }
 
     private void RemoveMaterial()
     {
-        foreach(var renderer in m_current_item.GetComponentsInChildren<Renderer>(true))
+        foreach (var renderer in m_current_item.GetComponentsInChildren<Renderer>(true))
         {
-            Material[] materials = renderer.sharedMaterials;
-
-            for(int i = 0; i < materials.Length; i++)
+            var materials = renderer.sharedMaterials.ToList();
+            if (materials.Contains(m_material))
             {
-                if(materials[i] == m_material)
-                {
-                    ArrayUtility.RemoveAt(ref materials, i);
-                    renderer.sharedMaterials = materials;
-
-                    break;
-                }
+                materials.Remove(m_material);
+                renderer.sharedMaterials = materials.ToArray();
             }
         }
     }

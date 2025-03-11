@@ -18,8 +18,9 @@ public class CameraCtrl : MonoBehaviour
         if(GameManager.Instance.Current == GameEventType.Playing)
         {
             Rotation();
-            Position();
         }
+
+        Position();
     }
 
     private void Rotation()

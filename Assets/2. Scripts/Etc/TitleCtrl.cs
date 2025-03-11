@@ -24,7 +24,7 @@ public class TitleCtrl : MonoBehaviour
     public void BTN_StartNewGame()
     {
         SoundManager.Instance.PlayEffect("Button Click");
-        LoadingManager.Instance.LoadScene("Game");
+        LoadingManager.Instance.LoadScene("Prologue");
     }
 
     public void BTN_Credit()
