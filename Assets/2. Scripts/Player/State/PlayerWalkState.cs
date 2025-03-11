@@ -3,26 +3,29 @@ using UnityEngine;
 public class PlayerWalkState : MonoBehaviour, IState<PlayerCtrl>
 {
     private PlayerCtrl m_player_ctrl;
+    private CameraShaker m_camera_shaker;
 
     public void ExecuteEnter(PlayerCtrl sender)
     {
         if(m_player_ctrl is null)
         {
             m_player_ctrl = sender;
+            m_camera_shaker = Camera.main.GetComponent<CameraShaker>();
         }
+
+        PlayEffect();
     }
 
     public void Execute()
     {
         CheckMove();
-        CheckDead();
 
         StaminaManager.Instance.RegenStamina();
     }
 
     public void ExecuteExit()
     {
-
+        CancelInvoke("PlayEffect");
     }
 
     private void CheckMove()
@@ -47,8 +50,12 @@ public class PlayerWalkState : MonoBehaviour, IState<PlayerCtrl>
         }
     }
 
-    private void CheckDead()
+    private void PlayEffect()
     {
-        // TODO: Dead 상태로 연결되는 조건 추가
+        if(GameManager.Instance.Current == GameEventType.Playing)
+        {
+            SoundManager.Instance.PlayEffect("Walk");
+            Invoke("PlayEffect", 0.8f);
+        }
     }
 }

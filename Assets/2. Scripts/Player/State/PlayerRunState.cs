@@ -10,19 +10,20 @@ public class PlayerRunState : MonoBehaviour, IState<PlayerCtrl>
         {
             m_player_ctrl = sender;
         }
+
+        PlayEffect();
     }
 
     public void Execute()
     {
         CheckMove();
-        CheckDead();
 
         StaminaManager.Instance.UseStamina();
     }
 
     public void ExecuteExit()
     {
-
+        CancelInvoke("PlayEffect");
     }
 
     private void CheckMove()
@@ -50,9 +51,13 @@ public class PlayerRunState : MonoBehaviour, IState<PlayerCtrl>
             m_player_ctrl.ChangeState(PlayerState.IDLE);
         }
     }
-
-    private void CheckDead()
+    
+    private void PlayEffect()
     {
-        // TODO: Dead 상태로 연결되는 조건 추가
+        if(GameManager.Instance.Current == GameEventType.Playing)
+        {
+            SoundManager.Instance.PlayEffect("Run");
+            Invoke("PlayEffect", 0.4f);
+        }
     }
 }

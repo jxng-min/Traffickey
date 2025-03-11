@@ -3,13 +3,10 @@ using UnityEngine.UI;
 
 public class Setter : MonoBehaviour
 {
-    private static bool m_is_ui_active = false;
-    public static bool IsActive
-    {
-        get { return m_is_ui_active; }
-        private set { m_is_ui_active = value; }
-    }
+    [Header("UI 오브젝트의 애니메이터")]
+    [SerializeField] private Animator m_animator;
 
+    [Space(30)]
     #region 소리
     [Header("사운드 패널 토글")]
     [SerializeField] private Toggle m_sound_toggle;
@@ -64,23 +61,21 @@ public class Setter : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(!IsActive)
+            if(GameManager.Instance.Current == GameEventType.Playing)
             {
-                IsActive = true;
+                GameEventBus.Publish(GameEventType.Setting);
 
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                m_animator.SetBool("IsOpen", true);
             }
-            else
+            else if(GameManager.Instance.Current == GameEventType.Setting)
             {
+                GameEventBus.Publish(GameEventType.Playing);
+                
                 SoundManager.Instance.PlayEffect("Button Click");
 
-                IsActive = false;
-
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;               
+                m_animator.SetBool("IsOpen", false);
             }
-            m_setting_ui_object.SetActive(IsActive);
+            
         }   
     }
 
@@ -88,23 +83,6 @@ public class Setter : MonoBehaviour
     {
         SoundManager.Instance.PlayEffect("Button Click");
         SettingManager.Instance.Setting.m_sound_setting.m_background_is_on = m_background_toggle.isOn;
-
-        if(m_background_toggle.isOn)
-        {
-            if(SoundManager.Instance.BGM.clip is not null)
-            {
-                SoundManager.Instance.BGM.Play();
-            }
-            else
-            {
-                SoundManager.Instance.PlayBGM("Game Background");
-            }
-            
-        }
-        else
-        {
-            SoundManager.Instance.BGM.Pause();
-        }
     }
 
     public void Slider_Background()

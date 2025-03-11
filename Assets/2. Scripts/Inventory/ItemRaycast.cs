@@ -29,11 +29,14 @@ public class ItemRaycast : MonoBehaviour
 
     private void Update()
     {
-        CheckItem();
-
-        if(m_is_pick_up_active)
+        if(GameManager.Instance.Current == GameEventType.Playing)
         {
-            TryPickUpItem();
+            CheckItem();
+
+            if(m_is_pick_up_active)
+            {
+                TryPickUpItem();
+            }
         }
     }
 
@@ -41,7 +44,6 @@ public class ItemRaycast : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            SoundManager.Instance.PlayEffect("Get Item");
             if(m_current_item.Item.Type <= ItemType.Equipment)
             {
                 var all_items = m_inventory.Slots;
@@ -129,7 +131,14 @@ public class ItemRaycast : MonoBehaviour
             
             Destroy(m_current_item.gameObject);
 
-            // TODO: 아이템 획득 사운드 추가
+            if(m_current_item.Item.ID is not (int)ItemCode.KEY)
+            {
+                SoundManager.Instance.PlayEffect("Get Item");
+            }
+            else
+            {
+                SoundManager.Instance.PlayEffect("Get Key");
+            }
 
             ItemInfoDisappear();
         }

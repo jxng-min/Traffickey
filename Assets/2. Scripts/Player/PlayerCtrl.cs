@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
@@ -37,14 +38,32 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        GameEventBus.Subscribe(GameEventType.Playing, GameManager.Instance.Playing);
+        GameEventBus.Subscribe(GameEventType.Setting, GameManager.Instance.Setting);
+        GameEventBus.Subscribe(GameEventType.Dead, GameManager.Instance.Dead);
+        GameEventBus.Subscribe(GameEventType.Clear, GameManager.Instance.Clear);
+
+        GameEventBus.Publish(GameEventType.Playing);
+    }
+
+    private void OnDisable()
+    {
+        GameEventBus.Unsubscribe(GameEventType.Playing, GameManager.Instance.Playing);
+        GameEventBus.Unsubscribe(GameEventType.Setting, GameManager.Instance.Setting);
+        GameEventBus.Unsubscribe(GameEventType.Dead, GameManager.Instance.Dead);
+        GameEventBus.Unsubscribe(GameEventType.Clear, GameManager.Instance.Clear);        
+    }
+
     private void Update()
     {
-        if(!Setter.IsActive)
+        if(GameManager.Instance.Current == GameEventType.Playing)
         {
             Direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        
-            m_player_state_context.ExecuteUpdate();
         }
+
+        m_player_state_context.ExecuteUpdate();
     }
 
     public void Move(float speed)
@@ -76,6 +95,8 @@ public class PlayerCtrl : MonoBehaviour
             }
             
             ChangeState(PlayerState.DEAD);
+
+            GameEventBus.Publish(GameEventType.Dead);
         }   
     }
 

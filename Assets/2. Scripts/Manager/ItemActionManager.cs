@@ -20,6 +20,7 @@ public class ItemActionManager : MonoBehaviour
                 switch(item.ID)
                 {
                     case (int)ItemCode.WATER:
+                        SoundManager.Instance.PlayEffect("Drink");
                         StaminaManager.Instance.RegenStamina(50f);
                         break;
 

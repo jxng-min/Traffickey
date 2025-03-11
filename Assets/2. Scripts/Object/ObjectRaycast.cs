@@ -29,11 +29,14 @@ public class ObjectRaycast : MonoBehaviour
 
     private void Update()
     {
-        CheckObject();
-
-        if(m_can_use)
+        if(GameManager.Instance.Current == GameEventType.Playing)
         {
-            TryInteraction();
+            CheckObject();
+
+            if(m_can_use)
+            {
+                TryInteraction();
+            }
         }
     }
 
@@ -55,8 +58,6 @@ public class ObjectRaycast : MonoBehaviour
                     Vent2Interaction();
                     break;
             }
-
-            //ItemInfoDisappear();
         }
     }
 
@@ -111,6 +112,16 @@ public class ObjectRaycast : MonoBehaviour
     private void DoorInteraction()
     {
         var door_anime = m_current_object.GetComponent<Animator>();
+
+        if(!door_anime.GetBool("IsOpen"))
+        {
+            SoundManager.Instance.PlayEffect("Door Open");
+        }
+        else
+        {
+            SoundManager.Instance.PlayEffect("Door Close");
+        }
+
         door_anime.SetBool("IsOpen", !door_anime.GetBool("IsOpen"));
     }
 
@@ -121,6 +132,7 @@ public class ObjectRaycast : MonoBehaviour
             return;
         }
 
+        SoundManager.Instance.PlayEffect("Vent");
         m_is_vent_using = true;
         StartCoroutine(Fade(new Vector3(17f, -0.41f, -47f), Quaternion.Euler(0f, -90f, 0f)));
     }
@@ -132,6 +144,7 @@ public class ObjectRaycast : MonoBehaviour
             return;
         }
 
+        SoundManager.Instance.PlayEffect("Vent");
         m_is_vent_using = true;
         StartCoroutine(Fade(new Vector3(-60f, -0.41f, 12f), Quaternion.Euler(0f, -180f, 0f)));
     }

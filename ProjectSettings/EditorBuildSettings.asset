@@ -12,7 +12,13 @@ EditorBuildSettings:
     path: Assets/1. Scenes/Info.unity
     guid: 90168a368e2c1c94fa826f8419a69905
   - enabled: 1
+    path: Assets/1. Scenes/Prologue.unity
+    guid: 127b4852729b9a8149b67dfac151436e
+  - enabled: 1
     path: Assets/1. Scenes/Game.unity
     guid: 85f97f636222b614a9453d9a0159da5e
+  - enabled: 1
+    path: Assets/1. Scenes/Epilogue.unity
+    guid: f2a447a780c13a84a91783bbb3d5af5e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
