@@ -20,7 +20,6 @@ public class PlayerHideState : MonoBehaviour, IState<PlayerCtrl>
         }
 
         CheckMove();
-        CheckDead();
     }
 
     public void ExecuteExit()
@@ -45,10 +44,5 @@ public class PlayerHideState : MonoBehaviour, IState<PlayerCtrl>
         {
             m_player_ctrl.ChangeState(PlayerState.IDLE);
         }
-    }
-
-    private void CheckDead()
-    {
-        // TODO: Dead 상태로 연결되는 조건 추가
     }
 }

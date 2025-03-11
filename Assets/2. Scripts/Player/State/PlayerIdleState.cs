@@ -15,7 +15,6 @@ public class PlayerIdleState : MonoBehaviour, IState<PlayerCtrl>
     public void Execute()
     {
         CheckMove();
-        CheckDead();
 
         StaminaManager.Instance.RegenStamina();
     }
@@ -45,10 +44,5 @@ public class PlayerIdleState : MonoBehaviour, IState<PlayerCtrl>
         {
             m_player_ctrl.ChangeState(PlayerState.IDLE);
         }
-    }
-
-    private void CheckDead()
-    {
-        // TODO: Dead 상태로 연결되는 조건 추가
     }
 }

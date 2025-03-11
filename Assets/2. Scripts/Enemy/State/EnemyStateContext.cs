@@ -26,11 +26,14 @@ public class EnemyStateContext
 
     public void ExecuteUpdate()
     {
-        if(m_enemy_ctrl is null)
+        if(GameManager.Instance.Current == GameEventType.Playing)
         {
-            return;
-        }
+            if(m_enemy_ctrl is null)
+            {
+                return;
+            }
 
-        Current?.Execute();
+            Current?.Execute();
+        }
     }
 }

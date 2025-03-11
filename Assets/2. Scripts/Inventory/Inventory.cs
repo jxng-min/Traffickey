@@ -72,38 +72,42 @@ public class Inventory : MonoBehaviour
     {
         CheckOpenTime();
 
-        if(Input.GetAxis("Mouse ScrollWheel") is not 0f)
+        if(GameManager.Instance.Current == GameEventType.Playing)
         {
-            m_arrows[m_arrow_index].SetActive(true);
+            if(Input.GetAxis("Mouse ScrollWheel") is not 0f)
+            {
+                SoundManager.Instance.PlayEffect("Button Click");
+                
+                m_arrows[m_arrow_index].SetActive(true);
 
-            m_elapsed_time = 0f;
-            ToggleUI(true);
+                m_elapsed_time = 0f;
+                ToggleUI(true);
+
+                if(IsActive)
+                {
+                    m_arrows[m_arrow_index].SetActive(false);
+
+                    if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+                    {
+                        m_arrow_index = PrevArrowIndex();
+                        m_arrows[m_arrow_index].SetActive(true);
+                    }
+                    else
+                    {
+                        m_arrow_index = NextArrowIndex();
+                        m_arrows[m_arrow_index].SetActive(true);
+                    }
+                }
+            }
 
             if(IsActive)
             {
-                SoundManager.Instance.PlayEffect("Button Click");
-                m_arrows[m_arrow_index].SetActive(false);
-
-                if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+                if(Input.GetKeyDown(KeyCode.Mouse1))
                 {
-                    m_arrow_index = PrevArrowIndex();
-                    m_arrows[m_arrow_index].SetActive(true);
-                }
-                else
-                {
-                    m_arrow_index = NextArrowIndex();
-                    m_arrows[m_arrow_index].SetActive(true);
-                }
-            }
-        }
-
-        if(IsActive)
-        {
-            if(Input.GetKeyDown(KeyCode.Mouse1))
-            {
-                if(m_slots[m_arrow_index].Item is not null)
-                {
-                    m_slots[m_arrow_index].UseItem();
+                    if(m_slots[m_arrow_index].Item is not null)
+                    {
+                        m_slots[m_arrow_index].UseItem();
+                    }
                 }
             }
         }
@@ -231,7 +235,7 @@ public class Inventory : MonoBehaviour
         return null;
     }
 
-    private int GetItemCount(ItemCode item_code)
+    public int GetItemCount(ItemCode item_code)
     {
         int count = 0;
         foreach(var slot in m_slots)

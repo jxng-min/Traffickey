@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class StaminaManager : Singleton<StaminaManager>
 {
     [Header("스테미너 Slider UI")]
-    [SerializeField] private Slider m_stamina_slider;
+    private Slider m_stamina_slider;
 
     [Header("최대 스테미너")]
     [Range(0f, 100f)][SerializeField] private float m_max_stamina;
@@ -20,10 +20,15 @@ public class StaminaManager : Singleton<StaminaManager>
     [Header("초당 스테미너 소모량")]
     [Range(0f, 10f)][SerializeField] private float m_drain_rate;
 
-    private bool IsUsing = false;
-
     private void Start()
     {
+        Initialization();
+    }
+
+    public void Initialization()
+    {
+        m_stamina_slider = GameObject.Find("Stamina UI").GetComponent<Slider>();
+
         m_current_stamina = m_max_stamina;
         m_stamina_slider.maxValue = m_max_stamina;
         m_stamina_slider.value = m_current_stamina;
@@ -31,11 +36,14 @@ public class StaminaManager : Singleton<StaminaManager>
 
     private void Update()
     {
-        m_stamina_slider.value = m_current_stamina;
-
-        if(m_stamina_slider.value >= m_stamina_slider.maxValue)
+        if(GameManager.Instance.Current == GameEventType.Playing)
         {
-            m_stamina_slider.gameObject.SetActive(false);
+            m_stamina_slider.value = m_current_stamina;
+
+            if(m_stamina_slider.value >= m_stamina_slider.maxValue)
+            {
+                m_stamina_slider.gameObject.SetActive(false);
+            }
         }
     }
 

@@ -4,6 +4,8 @@ public class TitleCtrl : MonoBehaviour
 {
     private void Start()
     {
+        GameEventBus.Publish(GameEventType.None);
+        
         if(SettingManager.Instance.Setting.m_sound_setting.m_background_is_on)
         {
             if(SoundManager.Instance.BGM.clip is null)

@@ -206,6 +206,18 @@ MonoBehaviour:
   m_effect_clips:
   - {fileID: 8300000, guid: 33e9ee04015797345828f6d7109529b8, type: 3}
   - {fileID: 8300000, guid: b57e9a299e4933142a44990098eabd9e, type: 3}
+  - {fileID: 8300000, guid: d8fde43937f6d8f7487c73c41e552ff0, type: 3}
+  - {fileID: 8300000, guid: 5b3b7b23a1d57c6d8ae6af0eebdebec1, type: 3}
+  - {fileID: 8300000, guid: 3220513a584503668826f1dcbbaa8b93, type: 3}
+  - {fileID: 8300000, guid: 8f8cf675e84749736b3ce5e0a4409524, type: 3}
+  - {fileID: 8300000, guid: 20bcd08650abd0e4ca873d6439643e48, type: 3}
+  - {fileID: 8300000, guid: 74e8ac07c5ab4f385b5bf75f16cc19c4, type: 3}
+  - {fileID: 8300000, guid: c6fcd752c879f824e9f1fdebcc85926a, type: 3}
+  - {fileID: 8300000, guid: 6ad0cf00f050bee41a2dee098475dc78, type: 3}
+  - {fileID: 8300000, guid: a89b82f2243fe9647ac9af5506f92742, type: 3}
+  - {fileID: 8300000, guid: a5889774aee8ce87a8e815cea3152e56, type: 3}
+  - {fileID: 8300000, guid: f3b47d1e151491c44ab148ab59fb03db, type: 3}
+  - {fileID: 8300000, guid: 2b28452c12d7a8efe88492cb16800f78, type: 3}
 --- !u!4 &61197963
 Transform:
   m_ObjectHideFlags: 0
@@ -1473,6 +1485,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181123356}
   m_CullTransparentMesh: 1
+--- !u!1 &1323425533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1323425535}
+  - component: {fileID: 1323425534}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1323425534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323425533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ee6f8b4d792a4daab131de4a5655ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1323425535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323425533}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1760753664
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,3 +2072,4 @@ SceneRoots:
   - {fileID: 1130920122}
   - {fileID: 2570755}
   - {fileID: 61197963}
+  - {fileID: 1323425535}

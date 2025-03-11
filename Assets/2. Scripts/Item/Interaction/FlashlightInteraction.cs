@@ -16,11 +16,15 @@ public class FlashlightInteraction : MonoBehaviour
     {
         if(!IsActive)
         {
+            SoundManager.Instance.PlayEffect("Flashlight On");
+
             m_flashlight_light.enabled = true;
             IsActive = true;
         }
         else
         {
+            SoundManager.Instance.PlayEffect("Flashlight Off");
+
             m_flashlight_light.enabled = false;
             IsActive = false;
         }

@@ -10,6 +10,8 @@ public class CameraInteraction : MonoBehaviour
 
     public void Use()
     {
+        SoundManager.Instance.PlayEffect("Camera Shutter");
+        
         StunEnemy();
         StartCoroutine(Fade());
     }
