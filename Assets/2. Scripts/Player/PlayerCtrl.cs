@@ -8,7 +8,6 @@ public class PlayerCtrl : MonoBehaviour
     private IState<PlayerCtrl> m_idle_state;
     private IState<PlayerCtrl> m_walk_state;
     private IState<PlayerCtrl> m_run_state;
-    private IState<PlayerCtrl> m_hide_state;
     private IState<PlayerCtrl> m_dead_state;
     #endregion
 
@@ -27,7 +26,6 @@ public class PlayerCtrl : MonoBehaviour
         m_idle_state = gameObject.AddComponent<PlayerIdleState>();
         m_walk_state = gameObject.AddComponent<PlayerWalkState>();
         m_run_state = gameObject.AddComponent<PlayerRunState>();
-        m_hide_state = gameObject.AddComponent<PlayerHideState>();
         m_dead_state = gameObject.AddComponent<PlayerDeadState>();
 
         ChangeState(PlayerState.IDLE);
@@ -114,10 +112,6 @@ public class PlayerCtrl : MonoBehaviour
             
             case PlayerState.RUN:
                 m_player_state_context.Transition(m_run_state);
-                break;
-
-            case PlayerState.HIDE:
-                m_player_state_context.Transition(m_hide_state);
                 break;
             
             case PlayerState.DEAD:

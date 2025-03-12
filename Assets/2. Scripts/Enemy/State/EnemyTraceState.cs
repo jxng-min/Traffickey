@@ -20,7 +20,7 @@ public class EnemyTraceState : MonoBehaviour, IState<EnemyCtrl>
         m_enemy_ctrl.Animator.SetBool("IsPatrol", true);
         m_agent.stoppingDistance = 0.5f;
 
-        // TODO: 들킨 효과음 출력
+        SoundManager.Instance.PlayEffect("Warning");
     }
 
     public void Execute()
@@ -45,7 +45,6 @@ public class EnemyTraceState : MonoBehaviour, IState<EnemyCtrl>
     {
         if(Vector3.Distance(transform.position, m_player.transform.position) <= m_enemy_ctrl.FollowRange)
         {
-            Debug.Log("여기1");
             m_agent.SetDestination(m_player.transform.position);
         }
         else

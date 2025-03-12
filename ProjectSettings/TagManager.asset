@@ -9,7 +9,6 @@ TagManager:
   - Vent2
   - Item
   - DoorMain
-  - Hide
   - Enemy
   layers:
   - Default

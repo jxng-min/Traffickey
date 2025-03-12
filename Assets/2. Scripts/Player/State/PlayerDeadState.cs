@@ -59,8 +59,6 @@ public class PlayerDeadState : MonoBehaviour, IState<PlayerCtrl>
                 }
             }
         }
-
-        // TODO: 게임 상태 죽음 변경
     }
 
     public void Execute()

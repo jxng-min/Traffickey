@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +25,6 @@ public class ObjectRaycast : MonoBehaviour
     [SerializeField] private Image m_vent_ui_object;
 
     private bool m_is_vent_using = false;
-
     private void Update()
     {
         if(GameManager.Instance.Current == GameEventType.Playing)
@@ -171,7 +169,7 @@ public class ObjectRaycast : MonoBehaviour
         color.a = 1f;
         m_vent_ui_object.color = color;
 
-        GameObject.Find("Player").transform.position = position;
+        GameManager.Instance.Player.transform.position = position;
         Camera.main.transform.rotation = rotation;
 
         yield return new WaitForSeconds(0.5f);

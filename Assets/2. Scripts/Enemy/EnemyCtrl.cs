@@ -76,11 +76,6 @@ public class EnemyCtrl : MonoBehaviour
 
     public void DetectPlayer()
     {
-        // if(Player.GetComponent<PlayerCtrl>().StateContext.Current is PlayerDeadState)
-        // {
-        //     return;
-        // }
-
         int ray_count = 36;
         Vector3 y_offset = new Vector3(0f, -3.5f, 0f);
         float detect_angle = 360f;
@@ -100,6 +95,7 @@ public class EnemyCtrl : MonoBehaviour
                 {
                     Debug.DrawRay(transform.position + y_offset, direction * DetectRange, Color.red);
                     ChangeState(EnemyState.TRACE);
+                    return;
                 }
                 else
                 {
