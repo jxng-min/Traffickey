@@ -9,7 +9,7 @@
 
 Unity 5를 활용하여 3D 1인칭뷰 공포게임을 제작하는 것이 목표입니다.
 
-2024.05.11) 기존 코드를 리팩토링했습니다.
+2025.03.11) 기존 코드를 리팩토링했습니다.
 
 <br></br>
 
@@ -20,7 +20,15 @@ Unity 5를 활용하여 3D 1인칭뷰 공포게임을 제작하는 것이 목표
 |이름|트래피키(Traffickey)|
 |장르|3D, 스릴, 공포|
 |개발 엔진|Unity 5 → Unity 6(6000.0.26f1)|
-|프로젝트 기간| 2023.06.01 ~ 2024.02.01 (Refact: 2025.05.05 ~ 05.11)|
+|프로젝트 기간| 2023.06.01 ~ 2024.02.01 (Refact: 2025.05.05 ~ 03.11)|
+
+<br></br>
+
+### 플레이 화면
+<img src = https://github.com/user-attachments/assets/0c469502-93cd-43eb-84ee-0ae6e2f001b7 width="400"/>
+<img src = https://github.com/user-attachments/assets/45f90b6d-258c-4148-99a3-3f2c3fb9c1e5 width="400"/>
+<img src = https://github.com/user-attachments/assets/b225ca98-21b7-4065-a9d6-b49674ff8213 width="400"/>
+<img src = https://github.com/user-attachments/assets/89102b03-798d-480a-835e-0821a59a0ef0 width="400"/>
 
 <br></br>
 
