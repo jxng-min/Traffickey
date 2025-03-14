@@ -34,13 +34,15 @@ Unity 5를 활용하여 3D 1인칭뷰 공포게임을 제작하는 것이 목표
 
 ### 개발 과정
 
-[Notion]() - 추후 기재
+
+<a href="https://jxngmin-resume.notion.site/Unity-Engine-5c02de338df64c84857b8f75b15db275?pvs=4"><img alt="Build" src ="https://img.shields.io/badge/Notion-000000.svg?&style=for-the-badge&logo=Notion&logoColor=white"/></a>
 
 <br></br>
 
 ### 프로젝트 빌드
 
-[Google Drive](https://drive.google.com/drive/folders/18laoqstNQEVfGziKmo1zqDfiM33N1CHN?usp=sharing)
+
+<a href="https://drive.google.com/drive/folders/18laoqstNQEVfGziKmo1zqDfiM33N1CHN?usp=sharing"><img alt="Build" src ="https://img.shields.io/badge/Drive-125B9F.svg?&style=for-the-badge&logo=googledrive&logoColor=white"/></a>
 
 <br></br>
 
